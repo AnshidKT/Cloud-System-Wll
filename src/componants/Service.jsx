@@ -12,6 +12,7 @@ const Service = () => {
     control: (provided) => ({
       ...provided,
       width: "92%",
+      height: 25, // Corrected the typo here
     }),
   };
   return (

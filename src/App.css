@@ -150,7 +150,7 @@
 }
 .slno-box {
   width: 80%;
-  height: 38px;
+  height: 35px;
   border: 1px solid rgb(186, 186, 186);
   border-radius: 5px;
   display: flex;
@@ -169,7 +169,7 @@
 }
 .select-service-name {
   width: 100%;
-  height: 42px;
+  height: 40px;
   /* border-top: 1px solid gray;
   border-bottom: 1px solid gray; */
   display: flex;
