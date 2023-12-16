@@ -379,9 +379,61 @@
   /* background-color: rgb(138, 2, 2);
    color: white; */
 }
+.modal{
+  width: 100%;
+  height: 150vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.794);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sub-modal{
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: center;
+}
+.saved-div{
+  width: 90%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.saved-done-btn{
+  width: 80px;
+  height: 30px;
+  border: 0;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+}
+
+
+
+
+
+
+
+
 
 .Demo {
   width: 100%;
-  height: 300px;
-  background-color: aqua;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.demo-cmpny-name{
+  font-size: 80px;
+  background: -webkit-linear-gradient(#570000, #ff0606);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

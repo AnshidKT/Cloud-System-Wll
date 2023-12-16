@@ -7,12 +7,15 @@ import {
   ListItem,
   ListItemText,
 } from "@mui/material";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import Service from "./Service";
 import Delegate from "./Delegate";
 import ServiceType from "../Json/Service List.json";
 import Customernames from "../Json/CustomerDifferentNames.json";
 import Customers from "../Json/Customer.json";
+import savedimg from "../img/saved.png";
+import { Link } from "react-router-dom";
 
 const SystemCloud = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -25,6 +28,16 @@ const SystemCloud = () => {
       return;
     }
     setDrawerOpen(open);
+  };
+
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const showModal = () => {
+    setModalVisible(true);
+  };
+
+  const hideModal = () => {
+    setModalVisible(false);
   };
 
   const menuItems = [
@@ -118,12 +131,32 @@ const SystemCloud = () => {
 
       <div className="buttons-container">
         <div className="buttons-sub-div">
-          <button className="save-btns">Save</button>
+          <button onClick={showModal} className="save-btns">
+            Save
+          </button>
+
           <button className="clear-btns">Clear</button>
           <button className="delete-btns">Delete</button>
-          <button className="close-btns">Close</button>
+
+          <Link to="/Demo">
+            <button className="close-btns">Close</button>
+          </Link>
         </div>
       </div>
+      {isModalVisible && (
+        <div className="modal">
+          <div className="sub-modal">
+            <div className="saved-div">
+              <span style={{ fontSize: 22 }}>Details Are Saved </span>
+              <img src={savedimg} alt="" />
+            </div>
+
+            <button className="saved-done-btn" onClick={hideModal}>
+              Done
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
