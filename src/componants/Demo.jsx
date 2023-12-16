@@ -6,7 +6,7 @@ const Demo = () => {
     <div className="Demo">
       <h1 className="demo-cmpny-name">Cloud System Wll</h1>
 
-      <Link style={{ textDecoration: "none" }} to="/SystemCloud">
+      <Link style={{ textDecoration: "none" }} to="/">
         {" "}
         <button
           style={{

@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="SystemCloud" index element={<SystemCloud />} />
+        <Route index element={<SystemCloud />} />
         <Route path="/Demo" element={<Demo />} />
       </Routes>
     </BrowserRouter>
