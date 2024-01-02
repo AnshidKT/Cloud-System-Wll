@@ -5,13 +5,14 @@ import "./Main.scss";
 
 const Main = () => {
   return (
-    <div>
+    <div ck>
       <nav className="nav">
         <Link to="/" style={{ marginRight: 10 }}>
           Entry
         </Link>
         <Link to="/Lists">List</Link>
       </nav>
+      
       <Outlet />
     </div>
   );

@@ -6,23 +6,50 @@
   align-items: center;
   justify-content: center;
 }
-.Entry-container {
+
+.entry-main-container {
   width: 100%;
-  height: 25vh;
-  background-color: rgb(185, 185, 185);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  // flex-direction: column;
-  input {
-    width: 200px;
-    height: 30px;
-    border: 0;
-    outline: none;
-   padding: 6px;
+  height: 76vh;
+  // background-color: aqua;
+  margin-top: 20px;
+  .Entry-container {
+    width: 100%;
+    height: 25vh;
+    background-color: rgb(185, 185, 185);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    // flex-direction: column;
+    margin-top: 10px;
+
+    input {
+      width: 200px;
+      height: 30px;
+      border: 0;
+      outline: none;
+      padding: 6px;
+    }
+    .reg-select {
+      width: 200px;
+      height: 45px;
+    }
   }
-  .reg-select {
-    width: 200px;
-    height: 45px;
+}
+
+
+.general-container{
+  width: 100%;
+  height: 80vh;
+  background-color: rgb(255, 255, 255);
+  .datils-sub-container{
+    width: 100%;
+    height: 70%;
+    background-color: rgb(211, 234, 255);
   }
+  
+}
+.details-modal-div{
+  width: 100%;
+  height: 60%;
+  // background-color: aquamarine;
 }

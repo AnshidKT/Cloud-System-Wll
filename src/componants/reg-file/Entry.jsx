@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import { Certificate, Customer, Scheduletype } from "./DemoDatas";
-
+import { Link } from "react-router-dom";
+// import Customerjson from '../../Json/Customer.json'
 const Entry = () => {
   const [customerName, setCustomerName] = useState(null);
   const [certificate, setCertificate] = useState(null);
@@ -22,7 +23,7 @@ const Entry = () => {
 
     setCertificateOptions(updatedCertificateOptions);
     setCertificate(null);
-    setScheduleType(null); 
+    setScheduleType(null);
   };
 
   const CustomerName = Customer.map((item) => ({
@@ -35,7 +36,9 @@ const Entry = () => {
     label: item.name,
   }));
   return (
-    <div>
+    <div className="entry-main-container">
+   
+<Link style={{marginLeft:20}} to='/Details'>Details</Link>
       <div className="Entry-container">
         <input type="number" placeholder="Req ID" />
         <input type="text" placeholder="Req NO" />
@@ -62,6 +65,7 @@ const Entry = () => {
         />
         <Select className="reg-select" placeholder="Service type" />
       </div>
+     
     </div>
   );
 };
