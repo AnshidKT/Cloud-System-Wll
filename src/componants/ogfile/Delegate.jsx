@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import delegateList from "../Json/DelegateList.json";
+import delegateList from "../../Json/DelegateList.json";
 const Delegate = () => {
   const [tableRows, setTableRows] = useState([
     {

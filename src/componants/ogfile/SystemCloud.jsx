@@ -11,10 +11,10 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import Service from "./Service";
 import Delegate from "./Delegate";
-import ServiceType from "../Json/Service List.json";
-import Customernames from "../Json/CustomerDifferentNames.json";
-import Customers from "../Json/Customer.json";
-import savedimg from "../img/saved.png";
+import ServiceType from "../../Json/Service List.json";
+import Customernames from "../../Json/CustomerDifferentNames.json";
+import Customers from "../../Json/Customer.json";
+import savedimg from "../../img/saved.png";
 import { Link } from "react-router-dom";
 
 const SystemCloud = () => {

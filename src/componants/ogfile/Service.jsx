@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
-import Servicenames from "../Json/ServiceDifferentNames.json";
-import "../App.css";
+import Servicenames from "../../Json/ServiceDifferentNames.json";
+import "../../App.css";
 const Service = () => {
   const serviceNames = Servicenames.map((item) => ({
     value: item.ID,
@@ -12,7 +12,7 @@ const Service = () => {
     control: (provided) => ({
       ...provided,
       width: "92%",
-      height: 25, // Corrected the typo here
+      height: 25, 
     }),
   };
   return (
