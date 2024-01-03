@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import { Certificate, Customer, Scheduletype } from "./DemoDatas";
 import { Link } from "react-router-dom";
-// import Customerjson from '../../Json/Customer.json'
+import Customerjson from "../../Json/Customer.json";
+import ScheduleTypeJson from "../../Json/Schedule Type.json";
+import CustomerCertificate from "../../Json/CustomerDifferentNames.json";
+
 const Entry = () => {
   const [customerName, setCustomerName] = useState(null);
   const [certificate, setCertificate] = useState(null);
@@ -12,13 +14,13 @@ const Entry = () => {
   const handleNameChange = (selectedOptions) => {
     setCustomerName(selectedOptions);
 
-    const selectedCertificates = Certificate.filter(
-      (cert) => cert.value === selectedOptions?.value
+    const selectedCertificates = CustomerCertificate.filter(
+      (cert) => cert.CustomerID === selectedOptions?.value
     );
 
     const updatedCertificateOptions = selectedCertificates.map((item) => ({
-      value: item.id,
-      label: item.name,
+      value: item.NameID,
+      label: item.Name,
     }));
 
     setCertificateOptions(updatedCertificateOptions);
@@ -26,19 +28,21 @@ const Entry = () => {
     setScheduleType(null);
   };
 
-  const CustomerName = Customer.map((item) => ({
-    value: item.value,
-    label: item.name,
+  const CustomerName = Customerjson.map((item) => ({
+    value: item.CustomerID,
+    label: item.CustomerName,
   }));
 
-  const ScheduleType = Scheduletype.map((item) => ({
-    value: item.name,
-    label: item.name,
+  const ScheduleTypeList = ScheduleTypeJson.map((item) => ({
+    value: item.SerialNo,
+    label: item.ScheduleType,
   }));
+
   return (
     <div className="entry-main-container">
-   
-<Link style={{marginLeft:20}} to='/Details'>Details</Link>
+      <Link style={{ marginLeft: 20 }} to="/Details">
+        Details
+      </Link>
       <div className="Entry-container">
         <input type="number" placeholder="Req ID" />
         <input type="text" placeholder="Req NO" />
@@ -59,13 +63,12 @@ const Entry = () => {
         <Select
           className="reg-select"
           placeholder="Schedule type"
-          options={ScheduleType}
+          options={ScheduleTypeList}
           onChange={setScheduleType}
           value={scheduleType}
         />
         <Select className="reg-select" placeholder="Service type" />
       </div>
-     
     </div>
   );
 };

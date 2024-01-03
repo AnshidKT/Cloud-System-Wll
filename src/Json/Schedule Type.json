@@ -1,10 +1,10 @@
 [
  {
   "SerialNo": 641,
-  "Schedule Type": "Normal schedule"
+  "ScheduleType": "Normal schedule"
  },
  {
   "SerialNo": 642,
-  "Schedule Type": "Open schedule"
+  "ScheduleType": "Open schedule"
  }
 ]

@@ -6,8 +6,8 @@ import Against from "./componants/demofile/Against";
 import Main from "./componants/reg-file/Main";
 import Entry from "./componants/reg-file/Entry";
 import Lists from "./componants/reg-file/Lists";
-import  Details  from "./componants/reg-file/Details";
-import  General  from "./componants/reg-file/Details";
+import Details from "./componants/reg-file/Details";
+import General from "./componants/reg-file/Details";
 
 // import { Fetch } from "./componants/Fetch";
 
@@ -27,7 +27,7 @@ function App() {
           <Route path="/Lists" element={<Lists />} />
           <Route path="/General" element={<General />} />
           <Route path="/Details" element={<Details />} />
-        </Route> 
+        </Route>
       </Routes>
     </BrowserRouter>
 
