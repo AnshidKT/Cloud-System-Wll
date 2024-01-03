@@ -109,4 +109,4 @@ export default Entry;
 
 
 
-// project and salseoredrhdr is connected
+// project and salesoredrhdr is connected
