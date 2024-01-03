@@ -5,6 +5,12 @@ import Modal from "react-modal";
 import Select from "react-select";
 import ServiceList from "../../Json/Service List.json";
 import Certificates from "../../Json/CustomerDifferentNames.json";
+import savedImg from "../../img/saved.png";
+import Unit from "../../Json/Unit.json";
+import languagejson from "../../Json/Languge.json";
+import locationJson from "../../Json/Location.json";
+import projectJson from "../../Json/Project.json";
+import scheduleJosn from "../../Json/Schedule Type.json";
 
 const Details = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +18,22 @@ const Details = () => {
   const [selectedServiceName, setSelectedServiceName] = useState("");
   const [slNo, setSlNo] = useState(1);
   const [additionalRows, setAdditionalRows] = useState([]);
+  const [PopupExamUnit, setPopupExamUnit] = useState("");
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [approval, setApproval] = useState("");
+
+  const showModal = () => {
+    setModalVisible(false);
+    if (additionalRows.length === 0) {
+      alert("The details are empty!");
+    } else {
+      setModalVisible(true);
+      setTimeout(() => {}, 700);
+    }
+  };
+  const hideModal = () => {
+    setModalVisible(false);
+  };
 
   useEffect(() => {
     if (selectedService) {
@@ -24,6 +46,9 @@ const Details = () => {
   const openModal = (selectedOption) => {
     setSelectedService(selectedOption);
     setIsModalOpen(true);
+    setPopupExamUnit("Yes");
+    setApproval("Enertech");
+    console.log(setApproval, "hooooo");
   };
 
   const closeModal = () => {
@@ -43,6 +68,16 @@ const Details = () => {
     closeModal();
   };
 
+  const handleDeleteButtonClick = (index) => {
+    const updatedRows = [...additionalRows];
+    updatedRows.splice(index, 1);
+    setAdditionalRows(updatedRows);
+  };
+
+  const handleClearButtonClick = () => {
+    setAdditionalRows([]);
+  };
+
   const salesOrderNo = ServiceList.map((item) => ({
     value: item.ServiceName,
     label: item.ID,
@@ -52,7 +87,28 @@ const Details = () => {
     value: item.NameID,
     label: item.Name,
   }));
+  const UnitId = Unit.map((item) => ({
+    value: item.UnitID,
+    label: item.ShortName,
+  }));
 
+  const languageList = languagejson.map((item) => ({
+    value: item.LangControlID,
+    label: item.Languge,
+  }));
+  const locationList = locationJson.map((item) => ({
+    value: item.LocationControlID,
+    label: item.Location,
+  }));
+
+  const projectList = projectJson.map((item) => ({
+    value: item.CustomerID,
+    label: item.ProjectName,
+  }));
+  const scheduleList = scheduleJosn.map((item) => ({
+    value: item.SerialNo,
+    label: item.SalesOrderNo,
+  }));
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -103,28 +159,47 @@ const Details = () => {
                   <Select options={certificatesNames} />
                 </td>
                 <td>
-                  <input className="exam-input-td" type="text" />
+                  <input
+                    className="exam-input-td"
+                    type="text"
+                    value={PopupExamUnit}
+                    onChange={(e) => setPopupExamUnit(e.target.value)}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    className="exam-input-td"
+                    value={approval}
+                    onChange={(e) => setApproval(e.target.value)}
+                  />
+                </td>
+                <td>
+                  <input type="datetime-local" className="exam-input-td" />
+                </td>
+                <td>
+                  <Select styles={customStyles} options={scheduleList} />
+                </td>
+                <td>
+                  <Select styles={customStyles} options={projectList} />
+                </td>
+                <td>
+                  <Select styles={customStyles} options={UnitId} />
+                </td>
+                <td>
+                <input className="exam-input-td" type="number" />
                 </td>
                 <td></td>
                 <td>
-                  <input type="datetime-local" />
+                  <Select styles={customStyles} options={locationList} />
                 </td>
                 <td>
-                  <input className="exam-input-td" type="text" />
+                  <Select styles={customStyles} options={languageList} />
                 </td>
-                <td></td>
-                <td></td>
-                <td>
-                  <input className="exam-input-td" type="text" />
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
               </tr>
               {additionalRows.map((row, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
-
                   <td>{row.salesOrder}</td>
                   <td>{row.service}</td>
                   <td>
@@ -132,26 +207,41 @@ const Details = () => {
                     <Select options={certificatesNames} />
                   </td>
                   <td>
-                    <input className="exam-input-td" type="text" />
+                    <input
+                      className="exam-input-td"
+                      value={PopupExamUnit}
+                      type="text"
+                      onChange={(e) => setPopupExamUnit(e.target.value)}
+                    />
                   </td>
-                  <td></td>
                   <td>
-                    <input type="datetime-local" />
+                    <input
+                      type="text"
+                      className="exam-input-td"
+                      value={approval}
+                      onChange={(e) => setApproval(e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <input className="exam-input-td" type="datetime-local" />
                   </td>
                   <td>
                     {" "}
-                    <input className="exam-input-td" type="text" />
+                    <Select styles={customStyles} options={scheduleList} />
                   </td>
-                  <td></td>
-                  <td></td>
+                  <td>  <Select styles={customStyles} options={projectList} /></td>
+                  <td>   <Select styles={customStyles} options={UnitId} /></td>
                   <td>
                     {" "}
-                    <input className="exam-input-td" type="text" />
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  
+                    <input className="exam-input-td" type="number" />
+                  </td> <td></td>
+                  <td>
+                  <Select styles={customStyles} options={locationList} />
+                </td>
+                <td>
+                  <Select styles={customStyles} options={languageList} />
+                </td>
+                 
                 </tr>
               ))}
             </tbody>
@@ -195,7 +285,14 @@ const Details = () => {
                   <td>{slNo}</td>
                   <td>{selectedService?.label || ""}</td>
                   <td>{selectedService?.value || ""}</td>
-                  <td></td>
+                  <td>
+                    <input
+                      className="exam-input-td"
+                      type="text"
+                      value={PopupExamUnit}
+                      onChange={(e) => setPopupExamUnit(e.target.value)}
+                    />
+                  </td>
                   <td></td>
                   <td></td>
                 </tr>
@@ -217,6 +314,52 @@ const Details = () => {
             Close
           </button>
         </Modal>
+
+        {isModalVisible && (
+          <Modal
+            isOpen={isModalVisible}
+            // onRequestClose={hideModal}
+            contentLabel="Details Saved"
+            style={{
+              overlay: {
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+              },
+              content: {
+                width: "40%",
+                height: "30%",
+                margin: "auto",
+                borderRadius: "8px",
+                padding: "20px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              },
+            }}
+            ariaHideApp={false}
+          >
+            <div className="d-flex flex-column align-items-center">
+              <div className="alert alert-success mb-3">
+                <span style={{ fontSize: "1.375rem" }}>Details Are Saved </span>
+                <img src={savedImg} alt="" />
+              </div>
+              <button className="btn btn-primary" onClick={hideModal}>
+                Done
+              </button>
+            </div>
+          </Modal>
+        )}
+      </div>
+      <div className="btns-div d-flex justify-content-end align-items-center">
+        <button onClick={showModal} className="btns ">
+          Save
+        </button>
+        <button onClick={handleDeleteButtonClick} className="btns">
+          Delete
+        </button>
+        <button onClick={handleClearButtonClick} className="btns">
+          Clear
+        </button>
+        <Link to="/">
+          <button className="btns"> Close</button>
+        </Link>
       </div>
     </div>
   );
