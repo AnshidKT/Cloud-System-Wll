@@ -28,7 +28,7 @@ const Details = () => {
       alert("The details are empty!");
     } else {
       setModalVisible(true);
-      setTimeout(() => {}, 700);
+      setTimeout(() => { }, 700);
     }
   };
   const hideModal = () => {
@@ -120,7 +120,7 @@ const Details = () => {
   return (
     <div className="general-container">
       <Link style={{ marginLeft: 10, marginTop: 10 }} to="/">
-        General
+        Details
       </Link>
       <div className="details-sub-container">
         <div className="table-container">
@@ -164,7 +164,9 @@ const Details = () => {
                     type="text"
                     value={PopupExamUnit}
                     onChange={(e) => setPopupExamUnit(e.target.value)}
+                    readOnly
                   />
+
                 </td>
                 <td>
                   <input
@@ -172,6 +174,7 @@ const Details = () => {
                     className="exam-input-td"
                     value={approval}
                     onChange={(e) => setApproval(e.target.value)}
+                    readOnly
                   />
                 </td>
                 <td>
@@ -187,7 +190,7 @@ const Details = () => {
                   <Select styles={customStyles} options={UnitId} />
                 </td>
                 <td>
-                <input className="exam-input-td" type="number" />
+                  <input className="exam-input-td" type="number" />
                 </td>
                 <td></td>
                 <td>
@@ -212,6 +215,7 @@ const Details = () => {
                       value={PopupExamUnit}
                       type="text"
                       onChange={(e) => setPopupExamUnit(e.target.value)}
+                      readOnly
                     />
                   </td>
                   <td>
@@ -236,12 +240,12 @@ const Details = () => {
                     <input className="exam-input-td" type="number" />
                   </td> <td></td>
                   <td>
-                  <Select styles={customStyles} options={locationList} />
-                </td>
-                <td>
-                  <Select styles={customStyles} options={languageList} />
-                </td>
-                 
+                    <Select styles={customStyles} options={locationList} />
+                  </td>
+                  <td>
+                    <Select styles={customStyles} options={languageList} />
+                  </td>
+
                 </tr>
               ))}
             </tbody>

@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { SalesOrderProvider } from './componants/reg-file/SalesOrderContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <SalesOrderProvider>
   <React.StrictMode>
     <App />
   </React.StrictMode>
+  </SalesOrderProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

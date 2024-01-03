@@ -58,11 +58,10 @@ const Entry = () => {
     label: item.ServiceType,
   }));
 
-
   return (
     <div className="entry-main-container">
       <Link style={{ marginLeft: 20 }} to="/Details">
-        Details
+        General
       </Link>
 
       <div className="Entry-container">
